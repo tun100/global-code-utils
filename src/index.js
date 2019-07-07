@@ -22,7 +22,7 @@ var utils = {
     if (_.isNil(crtdirname)) {
       crtdirname = __dirname
     }
-    return path.join(crtdirname, relativePath)
+    return path.normalize(path.join(crtdirname, relativePath)) 
   },
   isSameValueOnPos (obj, key, value) {
     return _.get(obj, key) === value
