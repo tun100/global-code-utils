@@ -18,8 +18,11 @@ var utils = {
   readDir (mypath) {
     return fs.readdirSync(mypath)
   },
-  getCrtPath (relativePath) {
-    return path.join(__dirname, relativePath)
+  getCrtPath (relativePath, crtdirname) {
+    if (_.isNil(crtdirname)) {
+      crtdirname = __dirname
+    }
+    return path.join(crtdirname, relativePath)
   },
   isSameValueOnPos (obj, key, value) {
     return _.get(obj, key) === value
